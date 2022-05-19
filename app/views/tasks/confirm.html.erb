@@ -1,0 +1,8 @@
+<%= form_with(model: @task, url: tasks_path, local: true) do |form| %>
+  <!-- Sur l'écran de confirmation description pour afficher l'image téléchargée -->
+  <%= form.hidden_field :name %>
+  <p>Name : <%= @task.name %></p>
+  <%= form.hidden_field :retail %>
+  <p>Retail : <%= @task.retail %></p>
+  <%= form.submit "Valider" %>
+<% end %>
