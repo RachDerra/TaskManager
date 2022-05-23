@@ -48,12 +48,12 @@
 
 ### Les commandes suivantes sont à taper sur le terminal
 
-heroku login
-heroku create TaskManager
-heroku buildpacks:set heroku/ruby
-heroku buildpacks:add --index 1 heroku/nodejs
-git add . 
-git commit -m "message"
-git push heroku master
-heroku run rails db:migrate
-heroku open
+- heroku login
+- heroku create TaskManager
+- heroku buildpacks:set heroku/ruby
+- heroku buildpacks:add --index 1 heroku/nodejs
+- git add . 
+- git commit -m "message"
+- git push heroku master
+- heroku run rails db:migrate
+- heroku open
