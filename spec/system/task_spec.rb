@@ -10,7 +10,7 @@ RSpec.describe 'Fonction de gestion des tâches', type: :system do
         visit new_task_path
         fill_in 'Name', with: 'title_test'
         fill_in 'Retail', with: 'content_test'
-        click_on 'Create Task'
+        click_on '登録する'
         expect(page).to have_content 'title_test'
 
       end
@@ -34,10 +34,23 @@ RSpec.describe 'Fonction de gestion des tâches', type: :system do
      context 'Lors de la transition vers un écran de détails de tâche' do
        it 'Le contenu de la tâche correspondante saffiche' do
         task = FactoryBot.create(:task, name: 'task', retail: 'description') 
-        visit tasks_path(task.id)
+        visit task_path(task.id)
         page.html
         expect(page).to have_content 'description'
        end
      end
   end
+  describe 'Fonction daffichage trié' do
+    context 'Si les tâches sont classées par ordre décroissant de date et de heure de création' do
+      it 'Les nouvelles tâches apparaissent en haut de la liste.' do
+       task = FactoryBot.create(:task, name: 'task1', retail: 'description1')
+       task = FactoryBot.create(:task, name: 'task2', retail: 'description2')
+       task = FactoryBot.create(:task, name: 'task3', retail: 'description3')
+       task = FactoryBot.create(:task, name: 'task4', retail: 'description4') 
+       visit tasks_path
+       tasks_list = all('td')
+       expect(tasks_list[0]).to have_content 'task4'
+      end
+    end
+ end
 end
