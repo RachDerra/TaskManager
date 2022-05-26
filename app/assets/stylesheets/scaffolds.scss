@@ -63,3 +63,9 @@ div.actions {
 
 label {
   display: block; }
+.project-card{
+  transition: background-color 0.5s ease ;
+  &:hover{
+    background-color: #d6d4d4;
+  }
+}
