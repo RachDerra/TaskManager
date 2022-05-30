@@ -1,14 +1,55 @@
-<p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name : </strong>
-  <%= @task.name %>
-</p>
+<% if notice %>
+  <div class="alert alert-success alert-dismissible fade show" role="alert">
+    <strong><h5 class="text-center" id="notice"><%= notice %></h5></strong>
+    
+  </div>
+<% end %>
 
-<p>
-  <strong>Description : </strong>
-  <%= @task.retail %>
-</p>
+<%= link_to 'Back', tasks_path, class: 'btn btn-light mb-3' %>
+<div class="card" >
+  <div class="card-body">
+    <h2 class='card-title d-flex justify-content-between'>
+      <span> <b> <%= @task.name %> </b> </span>  
+      <div> 
+        <%= link_to 'Edit', edit_task_path(@task), class: 'btn btn-light' %>
+        <%= link_to 'Destroy', @task, method: :delete, class: 'btn btn-secondary text-light', data: { confirm: 'Are you sure?' } %>
+      </div>
+    </h2>
 
-<%= link_to 'Edit', edit_task_path(@task) %> |
-<%= link_to 'Back', tasks_path %>
+    <div class="mb-4">
+      <span class="badge badge-primary mb-4">
+        <%= @task.status %>
+      </span>
+
+      <p>
+        <strong>Name : </strong>
+        <%= @task.name %>                 
+      </p>
+
+      <p>
+        <strong>Description : </strong>
+        <%= @task.retail %>
+      </p>
+
+      <p>
+        <strong>Dead line : </strong>
+        <%= @task.dead_line.strftime("%Y-%m-%d") %>
+      </p>
+
+      <p>
+        <strong>Priority : </strong>
+        <%= @task.priority %>
+      </p>
+    </div> 
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
