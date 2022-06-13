@@ -4,7 +4,8 @@ class Task < ApplicationRecord
     enum priority: { high:1,medium:2,low:3 }
     scope :search_name, -> name {where("name LIKE ?", "%#{name}%")}
     scope :search_status, -> status {where(status: status)}
-    paginates_per 3   
+    paginates_per 3  
+    belongs_to :user 
 
     def badge_color
         case status
