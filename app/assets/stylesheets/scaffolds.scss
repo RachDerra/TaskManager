@@ -1,5 +1,5 @@
 body {
-  background-color: rgb(238, 236, 236);
+  background-color: #fff;
   color: #333;
   margin: 33px; }
 
@@ -63,10 +63,3 @@ div.actions {
 
 label {
   display: block; }
-  
-.project-card{
-  transition: background-color 0.5s ease ;
-  &:hover{
-    background-color: #ecebeb;
-  }
-}

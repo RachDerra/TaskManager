@@ -20,6 +20,7 @@
               <%= form.submit 'Search', class: 'btn btn-outline-primary mr-2' %> 
               <strong> <%= form.label :status %> </strong>
               <%= form.select :number, Task.statuses.keys.to_a, { include_blank:'Please select'} %> 
+              <%= form.select("label_id", Label.pluck(:name, :id), { include_blank: 'choose label' }) %>
             </div>
           </div>
         <% end %>    
@@ -33,7 +34,9 @@
             <span class="badge badge-<%=task.badge_color%> mb-2">
               <%= task.status %>
             </span>
-            <p> <%= task.retail %> </p>
+            <p> 
+              <%= task.retail %> 
+            </p>
             <p>
               <%= task.dead_line.strftime("%Y-%m-%d") %>
             </p>
@@ -42,6 +45,11 @@
             </p>
             <p>
                <%= task.user.name %>
+            </p>
+            <p>
+              <% task.labels.each do |label| %>
+                <%= label.name %>
+              <% end %>
             </p>
 
           </div>

@@ -33,6 +33,12 @@
         <strong>Priority : </strong>
         <%= @task.priority %>
       </p>
+
+      <p>
+        <strong>label : </strong><% @task.labels.each do |label| %>
+          <%= label.name %>
+        <% end %>
+      </p>
     </div> 
   </div>
 </div>
